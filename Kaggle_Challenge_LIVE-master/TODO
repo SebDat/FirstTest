@@ -1,0 +1,2 @@
+- evaluate data augmentation
+- evaluate deeplabv3+ image segmentation (using atrous convolution)

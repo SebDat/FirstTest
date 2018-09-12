@@ -1,0 +1,13 @@
+
+model-tgs-salt-1_noaugmentation.h5
+IOU metric: 0.6728333333333333  (threshold = 0.5)
+Best IOU score: 0.7003333333333334, threshold used: 0.7346938775510203
+
+model-tgs-salt-1-augmentation1.h5
+IOU metric: 0.6981666666666666
+Best IOU score: 0.7279999999999999, threshold used: 0.7142857142857142
+
+model-tgs-salt-1-augmentation1_increased_dropout.h5 (added layer of dropout to the convolution path, + decrease the learning rate by factor of 2 each three epochs wo decreasing loss)
+IOU metric: 0.7175
+est IOU score: 0.7246666666666667, threshold used: 0.6122448979591836
+
