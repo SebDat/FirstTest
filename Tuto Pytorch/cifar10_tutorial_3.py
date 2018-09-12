@@ -56,7 +56,8 @@
 #    Using ``torchvision``, it’s extremely easy to load CIFAR10.
 #    """
     
-if __name__ == '__main__':  #need this for the multiprocessing to work on windows
+#if __name__ == '__main__':  #need this for the multiprocessing to work on windows
+if True:
     import torch
     import torchvision
     import torchvision.transforms as transforms
@@ -161,8 +162,8 @@ if __name__ == '__main__':  #need this for the multiprocessing to work on window
     # We simply have to loop over our data iterator, and feed the inputs to the
     # network and optimize.
 
-    #device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")  #select GPU device
-    #net.to(device)   #put NN into GPU
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")  #select GPU device
+    net.to(device)   #put NN into GPU
      
     
     for epoch in range(2):  # loop over the dataset multiple times
@@ -172,7 +173,7 @@ if __name__ == '__main__':  #need this for the multiprocessing to work on window
             # get the inputs
             inputs, labels = data
             
-            #inputs, labels = inputs.to(device), labels.to(device)  #put data into the GPU
+            inputs, labels = inputs.to(device), labels.to(device)  #put data into the GPU
             
             # zero the parameter gradients
             optimizer.zero_grad()
@@ -185,9 +186,9 @@ if __name__ == '__main__':  #need this for the multiprocessing to work on window
     
             # print statistics
             running_loss += loss.item()
-            if i % 2000 == 1999:    # print every 2000 mini-batches
+            if i % 100 == 99:    # print every 2000 mini-batches
                 print('[%d, %5d] loss: %.3f' %
-                      (epoch + 1, i + 1, running_loss / 2000))
+                      (epoch + 1, i + 1, running_loss / 100))
                 running_loss = 0.0
     
     print('Finished Training')
@@ -215,7 +216,7 @@ if __name__ == '__main__':  #need this for the multiprocessing to work on window
     ########################################################################
     # Okay, now let us see what the neural network thinks these examples above are:
     
-    #images, labels = images.to(device), labels.to(device)  #put data into the GPU
+    images, labels = images.to(device), labels.to(device)  #put data into the GPU
     outputs = net(images)
     
     ########################################################################
@@ -238,7 +239,7 @@ if __name__ == '__main__':  #need this for the multiprocessing to work on window
     with torch.no_grad():
         for data in testloader:
             images, labels = data
-            #images, labels = images.to(device), labels.to(device)  #put data into the GPU
+            images, labels = images.to(device), labels.to(device)  #put data into the GPU
             outputs = net(images)
             _, predicted = torch.max(outputs.data, 1)
             total += labels.size(0)
@@ -260,7 +261,7 @@ if __name__ == '__main__':  #need this for the multiprocessing to work on window
     with torch.no_grad():
         for data in testloader:
             images, labels = data
-            #images, labels = images.to(device), labels.to(device)  #put data into the GPU
+            images, labels = images.to(device), labels.to(device)  #put data into the GPU
             outputs = net(images)
             _, predicted = torch.max(outputs, 1)
             c = (predicted == labels).squeeze()
@@ -291,7 +292,7 @@ if __name__ == '__main__':  #need this for the multiprocessing to work on window
     
     # Assume that we are on a CUDA machine, then this should print a CUDA device:
     
-    print(device)
+    #print(device)
     
     tend = datetime.now()
     print('Optimization took {0}'.format(tend-tstart))
