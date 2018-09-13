@@ -35,3 +35,15 @@ Best IOU score: 0.7558333333333334, threshold used: 0.673469387755102
 model-tgs-salt-1-augmentation1_dropout2_stratification_exp1_log1.h
 IOU metric: 0.7276666666666667
 Best IOU score: 0.7325, threshold used: 0.6122448979591836
+
+model-tgs-salt-1-augmentation1_dropout2_stratification_exp2_log2.h5
+IOU metric: 0.7273333333333333
+Best IOU score: 0.7368333333333333, threshold used: 0.7346938775510203
+
+model-tgs-salt-1-augmentation1_dropout2_stratification_batch0_exp2_log2.h5
+IOU metric: 0.7136666666666667
+Best IOU score: 0.7295, threshold used: 0.673469387755102
+
+
+
+
